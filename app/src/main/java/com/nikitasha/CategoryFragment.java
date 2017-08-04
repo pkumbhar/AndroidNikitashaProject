@@ -17,7 +17,7 @@ import android.view.ViewGroup;
  * Use the {@link CategoryFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CategoryFragment extends Fragment {
+public class CategoryFragment extends android.app.Fragment {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -54,10 +54,10 @@ public class CategoryFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
+       /* if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+        }*/
     }
 
     @Override
@@ -74,7 +74,7 @@ public class CategoryFragment extends Fragment {
         }
     }
 
-    @Override
+   /* @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         if (context instanceof OnFragmentInteractionListener) {
@@ -89,7 +89,7 @@ public class CategoryFragment extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
-    }
+    }*/
 
     /**
      * This interface must be implemented by activities that contain this

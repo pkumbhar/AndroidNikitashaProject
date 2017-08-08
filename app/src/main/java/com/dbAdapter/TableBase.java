@@ -94,7 +94,7 @@ public class TableBase {
                 "\t`TOTAL_AMOUNT`\tTEXT,\n" +
                 "\t`CREATED_BY`\tTEXT,\n" +
                 "\t`VENDOR_ID`\tTEXT,\n" +
-                "\tPRIMARY KEY(PURCHASE_ORDER_ID)";
+                "\tPRIMARY KEY(PURCHASE_ORDER_ID));";
         public static String purchase_order_detail="CREATE TABLE `purchase_order_detail` (\n" +
                 "\t`POD_ID`\tTEXT,\n" +
                 "\t`ITEM_ID`\tTEXT,\n" +

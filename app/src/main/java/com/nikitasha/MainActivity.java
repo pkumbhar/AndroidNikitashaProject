@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
+import com.background.DownloadAllItems;
+import com.background.DownloadProductType;
 import com.multidexController.Controller;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -55,38 +57,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id=item.getItemId();
         FragmentManager fragmentManager = getFragmentManager();
         if(id==R.id.nav_HomeID){
+            new DownloadProductType(MainActivity.this,getApplicationContext(),null).execute("");
             HomeFragment homeFragment = new HomeFragment();
             Bundle args = new Bundle();
             fragmentManager.beginTransaction().replace(R.id.content_frame, homeFragment).commit();
-            setTitle("HOME");
+            setTitle("Home");
             drawer.closeDrawer(navigationView);
 
         }else if(id==R.id.nav_CategoryID){
             CategoryFragment categoryFragment= new CategoryFragment();
             Bundle args = new Bundle();
             fragmentManager.beginTransaction().replace(R.id.content_frame, categoryFragment).commit();
-            setTitle("OUR PRODUCTS");
+            setTitle("Category");
             drawer.closeDrawer(navigationView);
 
-        }else if(id==R.id.nav_ContactID){
-            AboutUsFragment homeFragment = new AboutUsFragment();
+        }else if(id==R.id.nav_our_product_id){
+            OurProductFragment ourProductFragment = new OurProductFragment();
             Bundle args = new Bundle();
-            fragmentManager.beginTransaction().replace(R.id.content_frame, homeFragment).commit();
-            setTitle("CATEGORY");
+            fragmentManager.beginTransaction().replace(R.id.content_frame, ourProductFragment).commit();
+            setTitle("Our Products");
             drawer.closeDrawer(navigationView);
 
         }else if(id==R.id.nav_About_id){
-            HomeFragment homeFragment = new HomeFragment();
+            AboutUsFragment aboutUsFragment = new AboutUsFragment();
             Bundle args = new Bundle();
-            fragmentManager.beginTransaction().replace(R.id.content_frame, homeFragment).commit();
+            fragmentManager.beginTransaction().replace(R.id.content_frame, aboutUsFragment).commit();
             setTitle("CONTACT US");
-            drawer.closeDrawer(navigationView);
-
-        }else if(id==R.id.nav_ShareID){
-            HomeFragment homeFragment = new HomeFragment();
-            Bundle args = new Bundle();
-            fragmentManager.beginTransaction().replace(R.id.content_frame, homeFragment).commit();
-            setTitle("SHAIR");
             drawer.closeDrawer(navigationView);
 
         }

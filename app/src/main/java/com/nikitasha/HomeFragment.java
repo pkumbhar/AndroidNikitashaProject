@@ -2,11 +2,15 @@ package com.nikitasha;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.dbAdapter.DBAdapter;
 
 
 /**
@@ -22,6 +26,7 @@ public class HomeFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    DBAdapter dbAdapter=null;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -58,6 +63,12 @@ public class HomeFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }*/
+        dbAdapter=new DBAdapter(getActivity());
+        Cursor mCursor=dbAdapter.getTableDetails();
+        if(mCursor!=null){
+            Log.i("Database at",""+mCursor.getColumnCount());
+
+        }
     }
 
     @Override

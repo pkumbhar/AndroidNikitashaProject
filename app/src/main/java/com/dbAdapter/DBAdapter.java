@@ -6,11 +6,15 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.DataAcessObject.NikitashtaDAO;
+
+import java.sql.SQLException;
+
 /**
  * Created by Admin on 03-August-3-2017.
  */
 
-public class DBAdapter {
+public class DBAdapter implements NikitashtaDAO {
     private final String DATABASE_NAME="NIKITASHA_VECTA";
     private final int DATABASE_VERSION=3;
     private DBHelper dbHelper=null;
@@ -57,12 +61,20 @@ public class DBAdapter {
 
         }
 
+
     }
     public Cursor getTableDetails(){
         Cursor mCursor=null;
         db=dbHelper.getWritableDatabase();
         mCursor=db.query(false,TableBase.Tables.item,null,null,null,null,null,null,null);
         return mCursor;
+    }
 
+    @Override
+    public long save(Object o) throws SQLException {
+        Cursor mCursor=null;
+        db=dbHelper.getWritableDatabase();
+
+        return 0;
     }
 }

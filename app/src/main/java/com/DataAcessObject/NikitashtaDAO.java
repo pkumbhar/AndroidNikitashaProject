@@ -1,5 +1,9 @@
 package com.DataAcessObject;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
 import java.sql.SQLException;
 
 /**
@@ -7,5 +11,11 @@ import java.sql.SQLException;
  */
 
 public interface NikitashtaDAO {
-    public long save(Object o)throws SQLException;
+   public long insert(String table, String nullColumnHack, ContentValues values);
+   public SQLiteDatabase OpenDatabase();
+   public void CloseDatabase();
+   public Cursor getTableCurser(boolean distinct, String table, String[] columns,
+                                String selection, String[] selectionArgs, String groupBy,
+                                String having, String orderBy, String limit) throws SQLException;
+
 }

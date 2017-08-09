@@ -1,5 +1,6 @@
 package com.dbAdapter;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -71,10 +72,29 @@ public class DBAdapter implements NikitashtaDAO {
     }
 
     @Override
-    public long save(Object o) throws SQLException {
-        Cursor mCursor=null;
-        db=dbHelper.getWritableDatabase();
+    public long insert(String table, String nullColumnHack, ContentValues values) {
+        try{
+            return db.insert(table,null,values);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return -1;
+    }
 
-        return 0;
+    @Override
+    public SQLiteDatabase OpenDatabase() {
+        db=dbHelper.getWritableDatabase();
+        return db;
+    }
+
+    @Override
+    public void CloseDatabase() {
+        dbHelper.close();
+    }
+
+    @Override
+    public Cursor getTableCurser(boolean distinct, String table, String[] columns, String selection, String[] selectionArgs, String groupBy, String having, String orderBy, String limit) throws SQLException {
+
+        return null;
     }
 }

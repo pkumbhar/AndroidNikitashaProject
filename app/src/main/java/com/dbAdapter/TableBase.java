@@ -27,6 +27,13 @@ public class TableBase {
         public static String uom="uom";
         public static String vendor="vendor";
     }
+    public static class ColumnName{
+        public static class ItemType{
+            public static String ITEM_TYPE_ID="ITEM_TYPE_ID";
+            public static String ITEM_NAME="ITEM_NAME";
+
+        }
+    }
     public static class create_table{
         public static String employee="CREATE TABLE `employee` (\n" +
                 "\t`EMP_ID`\tTEXT,\n" +
@@ -84,7 +91,7 @@ public class TableBase {
                 "\tPRIMARY KEY(ITEM_SIZE_ID)\n" +
                 ");";
         public static String item_type="CREATE TABLE `item_type` (\n" +
-                "\t`ITEM_TYPE_ID`\tINTEGER,\n" +
+                "\t`ITEM_TYPE_ID`\tTEXT,\n" +
                 "\t`ITEM_NAME`\tTEXT,\n" +
                 "\tPRIMARY KEY(ITEM_TYPE_ID)\n" +
                 ");";

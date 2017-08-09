@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id=item.getItemId();
         FragmentManager fragmentManager = getFragmentManager();
         if(id==R.id.nav_HomeID){
-            new DownloadProductType(MainActivity.this,getApplicationContext(),null).execute("");
+          //  new DownloadProductType(MainActivity.this,getApplicationContext(),null).execute("");
             HomeFragment homeFragment = new HomeFragment();
             Bundle args = new Bundle();
             fragmentManager.beginTransaction().replace(R.id.content_frame, homeFragment).commit();
@@ -84,9 +84,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             fragmentManager.beginTransaction().replace(R.id.content_frame, aboutUsFragment).commit();
             setTitle("CONTACT US");
             drawer.closeDrawer(navigationView);
-
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
